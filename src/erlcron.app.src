@@ -9,9 +9,7 @@
 
    {applications,
     [kernel,
-     stdlib,
-     sasl,
-     eunit]},
+     stdlib]},
    {mod,
     {ecrn_app, []}}
   ]}.
