@@ -5,8 +5,8 @@
 
 -compile(export_all).
 
+-ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
-
 %% -- tests ---------------------------------------------------------------------
 cron_test_() ->
     {setup,
@@ -163,7 +163,7 @@ validation_test(_) ->
     ?assertMatch(invalid, ecrn_agent:validate({daily, {55, 22, am}})),
     ?assertMatch(invalid, ecrn_agent:validate({monthly, 65, {55, am}})).
 
-
+-endif.
 
 %% -- helpers -------------------------------------------------------------------
 

@@ -20,7 +20,9 @@
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2,
 	 terminate/2, code_change/3]).
 
+-ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
+-endif.
 
 -define(SERVER, ?MODULE).
 
@@ -223,7 +225,7 @@ get_for_key(Key, Dict) ->
 %%%===================================================================
 %%% Tests
 %%%===================================================================
-
+-ifdef(TEST).
 generate_test_() ->
     {setup,
      fun () ->
@@ -246,11 +248,4 @@ general_tests(_) ->
     ?assertMatch({ok, [boo]}, ecrn_reg:get(b)),
     ?assertMatch({discarded_keys, [d, c]},
      		 ecrn_reg:register([c, d], boo2)).
-
-
-
-
-
-
-
-
+-endif.
